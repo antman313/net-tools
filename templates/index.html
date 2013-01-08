@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#">IPs, networks, subnets</a>
+  </li>
+  <li><a href="#">...</a></li>
+</ul>
+  <div>
+    <form class="form-search">
+      <label class="control-label" for="cidr">CIDR</label>
+      <input id="cidr" type="text" class="input-medium search-query" placeholder="10.0.0.0/24" data-bind="value: cidr">
+      <button type="submit" class="btn" data-bind="click: process, enable: cidr() != ''">Go!</button>
+    </form>
+    <div>
+      <table class="table" data-bind="visible: range() != ''">
+        <tr>
+          <td>CIDR</td>
+          <td><span data-bind="text: cidr"></td>
+        </tr>
+        <tr>
+          <td>Network</td>
+          <td><span data-bind="text: network"></td>
+        </tr>
+        <tr>
+          <td>Broadcast</td>
+          <td><span data-bind="text: broadcast"></td>
+        </tr>
+        <tr>
+          <td>Size</td>
+          <td><span data-bind="text: net_size"></td>
+        </tr>
+        <tr>
+          <td>IP Rande</td>
+          <td><span data-bind="text: range"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+{% endblock %}
